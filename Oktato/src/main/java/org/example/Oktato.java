@@ -12,27 +12,125 @@ public class Oktato {
     private int publikaciokSzama;
 
     public Oktato(String nev, String neptunkod, int eletkor, String egyetem, String intezet, String beosztas, int tantargyakSzama, double fizetes, int publikaciokSzama) {
-        this.nev = nev;
-        this.neptunkod = neptunkod;
-        this.eletkor = eletkor;
-        this.egyetem = egyetem;
-        this.intezet = intezet;
-        this.beosztas = beosztas;
-        this.tantargyakSzama = tantargyakSzama;
-        this.fizetes = fizetes;
-        this.publikaciokSzama = publikaciokSzama;
+        if (!nev.isBlank()) {
+            this.nev = nev;
+        }
+        else {
+            System.exit(111);
+        }
+        if ((!neptunkod.isBlank()) && (neptunkod.length() == 6)) {
+            this.neptunkod = neptunkod;
+        }
+        else {
+            System.exit(111);
+        }
+        if (eletkor > 18 && eletkor < 80) {
+            this.eletkor = eletkor;
+        }
+
+        else {
+            System.exit(111);
+        }
+        if (!egyetem.isBlank()) {
+            this.egyetem = egyetem;
+        }
+        else {
+            System.exit(111);
+        }
+        if (!intezet.isBlank()) {
+            this.intezet = intezet;
+        }
+        else {
+            System.exit(111);
+        }
+        if (beosztas.equalsIgnoreCase("tanársegéd")
+                || beosztas.trim().equalsIgnoreCase("adjunktus")
+                || beosztas.trim().equalsIgnoreCase("docens")
+                || beosztas.trim().equalsIgnoreCase("egyetemi tanár")
+                || beosztas.trim().equalsIgnoreCase("mérnöktanár")
+                || beosztas.trim().equalsIgnoreCase("óraadó")
+                || beosztas.trim().equalsIgnoreCase("oktató")) {
+            this.beosztas = beosztas;
+        }
+        else {
+            System.exit(111);
+        }
+        if (tantargyakSzama > 1) {
+            this.tantargyakSzama = tantargyakSzama;
+        }
+        else {
+            System.exit(111);
+        }
+        if (fizetes > 100000) {
+            this.fizetes = fizetes;
+        }
+        else {
+            System.exit(111);
+        }
+        if (publikaciokSzama > 1) {
+            this.publikaciokSzama = publikaciokSzama;
+        }
+        else {
+            System.exit(111);
+        }
     }
 
     public Oktato(String nev, String neptunkod, int eletkor, String intezet, String beosztas, int tantargyakSzama, double fizetes, int publikaciokSzama) {
-        this.nev = nev;
-        this.neptunkod = neptunkod;
-        this.eletkor = eletkor;
-        this.egyetem = "THE";
-        this.intezet = intezet;
-        this.beosztas = beosztas;
-        this.tantargyakSzama = tantargyakSzama;
-        this.fizetes = fizetes;
-        this.publikaciokSzama = publikaciokSzama;
+        if (!nev.isBlank()) {
+            this.nev = nev;
+        }
+        else {
+            System.exit(111);
+        }
+        if ((!neptunkod.isBlank()) && (neptunkod.length() == 6)) {
+            this.neptunkod = neptunkod;
+        }
+        else {
+            System.exit(111);
+        }
+        if (eletkor > 18 && eletkor < 80) {
+            this.eletkor = eletkor;
+        }
+
+        else {
+            System.exit(111);
+        }
+        if (!intezet.isBlank()) {
+            this.intezet = intezet;
+        }
+        else {
+            System.exit(111);
+        }
+        if (beosztas.equalsIgnoreCase("tanársegéd")
+                || beosztas.trim().equalsIgnoreCase("adjunktus")
+                || beosztas.trim().equalsIgnoreCase("docens")
+                || beosztas.trim().equalsIgnoreCase("egyetemi tanár")
+                || beosztas.trim().equalsIgnoreCase("mérnöktanár")
+                || beosztas.trim().equalsIgnoreCase("óraadó")
+                || beosztas.trim().equalsIgnoreCase("oktató")) {
+            this.beosztas = beosztas;
+        }
+        else {
+            System.exit(111);
+        }
+        if (tantargyakSzama > 1) {
+            this.tantargyakSzama = tantargyakSzama;
+        }
+        else {
+            System.exit(111);
+        }
+        if (fizetes > 100000) {
+            this.fizetes = fizetes;
+        }
+        else {
+            System.exit(111);
+        }
+        if (publikaciokSzama > 1) {
+            this.publikaciokSzama = publikaciokSzama;
+        }
+        else {
+            System.exit(111);
+        }
     }
 
     public void targyakSzamaEmel(int darabszam) {
@@ -85,7 +183,7 @@ public class Oktato {
     }
 
     public void setEletkor(int eletkor) {
-        if (eletkor > 20 && eletkor < 100) {
+        if (eletkor > 18 && eletkor < 100) {
             this.eletkor = eletkor;
         }
     }
@@ -116,12 +214,12 @@ public class Oktato {
 
     public void setBeosztas(String beosztas) {
         if (beosztas.equalsIgnoreCase("tanársegéd")
-                || beosztas.equalsIgnoreCase("adjunktus")
-                || beosztas.equalsIgnoreCase("docens")
-                || beosztas.equalsIgnoreCase("egyetemi tanár")
-                || beosztas.equalsIgnoreCase("mérnöktanár")
-                || beosztas.equalsIgnoreCase("óraadó")
-                || beosztas.equalsIgnoreCase("oktató")) {
+                || beosztas.trim().equalsIgnoreCase("adjunktus")
+                || beosztas.trim().equalsIgnoreCase("docens")
+                || beosztas.trim().equalsIgnoreCase("egyetemi tanár")
+                || beosztas.trim().equalsIgnoreCase("mérnöktanár")
+                || beosztas.trim().equalsIgnoreCase("óraadó")
+                || beosztas.trim().equalsIgnoreCase("oktató")) {
             this.beosztas = beosztas;
         }
     }
@@ -131,7 +229,7 @@ public class Oktato {
     }
 
     public void setTantargyakSzama(int tantargyakSzama) {
-        if (tantargyakSzama >= 0) {
+        if (tantargyakSzama >= 1) {
             this.tantargyakSzama = tantargyakSzama;
         }
     }
@@ -141,7 +239,7 @@ public class Oktato {
     }
 
     public void setFizetes(double fizetes) {
-        if (fizetes >= 0) {
+        if (fizetes >= 100000) {
             this.fizetes = fizetes;
         }
     }
@@ -151,7 +249,7 @@ public class Oktato {
     }
 
     public void setPublikaciokSzama(int publikaciokSzama) {
-        if (publikaciokSzama >= 0) {
+        if (publikaciokSzama >= 1) {
             this.publikaciokSzama = publikaciokSzama;
         }
     }
